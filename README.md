@@ -92,4 +92,4 @@ Katkı sağlamak istersen:
 ## 📄 Lisans
 
 Bu proje eğitim amaçlı geliştirilmiştir.
-İsteğe bağlı olarak MIT License eklenebilir.
+
