@@ -1,5 +1,7 @@
 # HeroScript Mini Programlama Dili
 
+HeroScript, RPG odaklı eğitim amaçlı bir mini programlama dili tasarımı ve HTML tabanlı demo arayüzüdür.
+
 Bu proje, "Programlama Dilleri" dersi kapsamında tasarlanmış bir mini dil uygulamasıdır. HeroScript, RPG ve macera türü oyunlar için özel olarak tasarlanmış, basit ve öğrenmesi kolay bir betik dilidir.
 
 ## Proje İçeriği
