@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeroScript IDE - Oyun Komut Dili</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --panel-bg: #1e293b;
+            --text-color: #f8fafc;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --border: #334155;
+            --success: #10b981;
+            --error: #ef4444;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+        h1 { margin: 0; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; }
+        .badge {
+            background-color: var(--accent);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+            min-height: 0;
+        }
+        .editor-section, .output-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: var(--panel-bg);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        .panel-header {
+            background: rgba(0,0,0,0.2);
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        textarea {
+            flex: 1;
+            background: transparent;
+            color: #e2e8f0;
+            border: none;
+            padding: 15px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 1.05rem;
+            resize: none;
+            outline: none;
+            line-height: 1.5;
+        }
+        #output {
+            flex: 1;
+            padding: 15px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.95rem;
+            overflow-y: auto;
+            color: #a7f3d0;
+            white-space: pre-wrap;
+        }
+        .btn {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s;
+        }
+        .btn:hover { background-color: #059669; transform: scale(1.02); }
+        .system-msg { color: #94a3b8; font-style: italic; }
+        .error-msg { color: var(--error); }
+        .examples {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .ex-btn {
+            background: var(--panel-bg);
+            border: 1px solid var(--border);
+            color: var(--text-color);
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+        .ex-btn:hover { background: var(--border); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>⚔️ HeroScript <span class="badge">v1.0.0</span></h1>
+        <p style="color: #94a3b8; margin:0;">Oyun Motoru Derleyici Arayüzü</p>
+    </header>
+
+    <div class="examples">
+        <span style="font-size: 0.9rem; padding: 6px 5px 0 0;">Örnek Yükle:</span>
+        <button class="ex-btn" onclick="loadExample(1)">1. Altın Toplama</button>
+        <button class="ex-btn" onclick="loadExample(2)">2. Can Kontrolü (IF)</button>
+        <button class="ex-btn" onclick="loadExample(3)">3. Kritik Vuruş</button>
+        <button class="ex-btn" onclick="loadExample(4)">4. Kombo (WHILE)</button>
+    </div>
+
+    <div class="container">
+        <!-- Editör -->
+        <div class="editor-section">
+            <div class="panel-header">
+                <span>📝 Kod Editörü</span>
+                <button class="btn" onclick="compileAndRun()">▶ Kodu Çalıştır</button>
+            </div>
+            <textarea id="code" spellcheck="false" placeholder="// HeroScript kodunuzu buraya yazın..."></textarea>
+        </div>
+
+        <!-- Çıktı -->
+        <div class="output-section">
+            <div class="panel-header">
+                <span>📺 Oyun Konsolu Çıktısı</span>
+                <button class="ex-btn" onclick="clearConsole()">Temizle</button>
+            </div>
+            <div id="output">
+                <div class="system-msg">> HeroScript Engine başlatıldı... Bekleniyor.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const examples = {
+            1: `// Sandıktan çıkan altın ile cepteki altını toplama\nSAY "Sandıktan kaç altın çıktı?";\nInt sandik_altini = INPUT;\nInt cep_altini = 150;\n\nInt toplam_altin = sandik_altini + cep_altini;\nSAY "Yeni Bakiyeniz: " + toplam_altin + " Altın.";`,
+            2: `// Karakterin canına göre durum yazdırma\nSAY "Mevcut HP (Can) değerinizi girin:";\nInt hp = INPUT;\n\nIF hp >= 80 [\n    SAY "Durum: Çok Sağlıklı, savaşmaya hazırsın!";\n] ELSE IF hp >= 30 [\n    SAY "Durum: Yaralı, dikkatli ol!";\n] ELSE [\n    SAY "Durum: Kritik, hemen bir iksir içmelisin!";\n];`,
+            3: `// Zarın tek/çift durumuna göre kritik vuruş hesaplama\nSAY "Saldırmak için zar atın (Sayı girin):";\nInt zar = INPUT;\n\nInt kalan = zar % 2;\n\nIF kalan == 0 [\n    SAY "ÇİFT geldi! Düşmana KRİTİK vuruş yaptın!";\n] ELSE [\n    SAY "TEK geldi! Düşmana NORMAL vuruş yaptın.";\n];`,
+            4: `// Faktöriyel tabanlı kombo hasarı hesaplama\nSAY "Kombo yeteneği seviyenizi girin:";\nInt seviye = INPUT;\n\nInt kombo_hasari = 1;\n\nWHILE seviye > 0 [\n    kombo_hasari = kombo_hasari * seviye;\n    seviye = seviye - 1;\n];\n\nSAY "Düşmana verilen toplam kombo hasarı: " + kombo_hasari;`
+        };
+
+        function loadExample(id) {
+            document.getElementById("code").value = examples[id];
+        }
+
+        // Başlangıçta örnek 2'yi yükle
+        loadExample(2);
+
+        function printToConsole(msg) {
+            const out = document.getElementById("output");
+            out.innerHTML += `<div>> ${msg}</div>`;
+            out.scrollTop = out.scrollHeight; // Auto-scroll down
+        }
+
+        function clearConsole() {
+            document.getElementById("output").innerHTML = '<div class="system-msg">> Konsol temizlendi.</div>';
+        }
+
+        async function compileAndRun() {
+            clearConsole();
+            
+            // Ekranın temizlenmesi için tarayıcıya çok kısa bir süre tanıyoruz (Asenkron)
+            await new Promise(r => setTimeout(r, 50));
+            
+            const code = document.getElementById("code").value;
+            
+            try {
+                // Kendi Transpiler'ımız (HeroScript'i gizlice JavaScript'e çevirip çalıştırıyoruz)
+                let jsCode = code
+                    .replace(/\bInt\b/g, "let")
+                    .replace(/\bBag\b/g, "let")
+                    .replace(/\bDialog\b/g, "let")
+                    .replace(/\bStatus\b/g, "let")
+                    // SAY komutundan sonra ekranın çizilebilmesi için ufak bir bekleme ekliyoruz
+                    .replace(/\bSAY\s+(.*?);/g, "printToConsole($1); await delay(50);")
+                    .replace(/\bINPUT\b/g, "Number(prompt('Engine Input Bekliyor:'))")
+                    // ELSE yapılarının başındaki ']' işaretini de kapsayacak şekilde düzeltildi:
+                    .replace(/\]\s*ELSE IF\b\s+(.+?)\s*\[/g, "} else if ($1) {")
+                    .replace(/\]\s*ELSE\b\s*\[/g, "} else {")
+                    .replace(/\bIF\b\s+(.+?)\s*\[/g, "if ($1) {")
+                    .replace(/\bWHILE\b\s+(.+?)\s*\[/g, "while ($1) {")
+                    .replace(/\];/g, "}")
+                    .replace(/\]/g, "}")
+                    .replace(/\bCOUNT\((.*?)\)/g, "$1.length");
+
+                // Arka planda Asenkron JS olarak çalıştır
+                const execute = new Function('printToConsole', 'delay', `return (async () => { ${jsCode} })();`);
+                await execute(printToConsole, (ms) => new Promise(r => setTimeout(r, ms)));
+                
+            } catch (error) {
+                // Eğer syntax hatası olursa oyun konsolunda göster
+                printToConsole(`<span class="error-msg">EngineError: Derleme hatası. Sözdizimini (Syntax) kontrol edin. [Detay: ${error.message}]</span>`);
+            }
+        }
+    </script>
+</body>
+</html>
