@@ -89,12 +89,11 @@ Katkı sağlamak istersen:
 
 ---
 
-## 📄 Lisans
+## 📜 Lisans
 
-Bu proje eğitim amaçlı geliştirilmiştir.
+Bu proje **MIT License** ile lisanslanmıştır. Detaylı bilgi için `LICENSE` dosyasını inceleyebilirsiniz.
 
----
-## 👨‍💻 Geliştirici
+## 👩‍💻 Geliştirici
 
-**Şilan Pehlivan**
+Şilan Pehlivan
 
