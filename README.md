@@ -93,3 +93,8 @@ Katkı sağlamak istersen:
 
 Bu proje eğitim amaçlı geliştirilmiştir.
 
+---
+## 👨‍💻 Geliştirici
+
+**Şilan Pehlivan**
+
