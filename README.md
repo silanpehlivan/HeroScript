@@ -24,6 +24,19 @@ RPG ve macera senaryolarını kullanarak temel programlama kavramlarını öğre
 
 Mini Language · Browser IDE
 
+## Teknik yaklaşım
+
+Dil raporu sözdizimi ve semantik kurallarını açıklar; bağımsız HTML IDE oyun senaryoları üzerinden değişken, koşul ve döngü kavramlarını somutlaştırır.
+
+## Kodu incelemeye başlayın
+
+- [HeroScript_Dil_Raporu.md](HeroScript_Dil_Raporu.md)
+- [HeroScript_IDE.html](HeroScript_IDE.html)
+
+## Kapsam ve sınırlar
+
+Özel amaçlı eğitim dilidir; genel amaçlı dil standardı veya üretim oyun motoru uyumluluğu iddiası içermez.
+
 <details>
 <summary><strong>Kurulum, kullanım ve teknik ayrıntılar</strong></summary>
 
