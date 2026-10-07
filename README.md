@@ -1,23 +1,50 @@
-# 🧙‍♂️ HeroScript
+<div align="center">
+
+# HeroScript
+
+**Oyun senaryolarıyla programlama eğitimi**
+
+![Mini Language](https://img.shields.io/badge/Mini%20Language-2563eb?style=flat-square)
+![Browser IDE](https://img.shields.io/badge/Browser%20IDE-0891b2?style=flat-square)
+[![MIT License](https://img.shields.io/badge/License-MIT-16a34a?style=flat-square)](LICENSE)
+
+RPG ve macera senaryolarını kullanarak temel programlama kavramlarını öğretmeyi amaçlayan mini dil ve tarayıcı IDE’si.
+
+</div>
+
+---
+
+## Öne Çıkanlar
+
+- Değişken, koşul, döngü ve liste yapıları
+- Tarayıcı üzerinden çalışan IDE
+- Dil kuralları ve örnek oyun senaryoları
+
+## Teknolojiler
+
+Mini Language · Browser IDE
+
+<details>
+<summary><strong>Kurulum, kullanım ve teknik ayrıntılar</strong></summary>
 
 HeroScript, RPG ve macera oyunları için tasarlanmış **eğitim amaçlı mini bir programlama dilidir**.
 Temel programlama kavramlarını (değişkenler, döngüler, koşullar vb.) oyun senaryoları üzerinden öğretmeyi amaçlar.
 
 ---
 
-## 🚀 Özellikler
+## Özellikler
 
-* 🧩 Basit ve anlaşılır söz dizimi (syntax)
-* 🔁 Döngüler (loops)
-* 🔀 Koşul yapıları (if-else)
-* 📦 Değişkenler (variables)
-* 📚 Listeler (arrays/lists)
-* 🎮 Oyun mekaniği odaklı kullanım
-* 💻 Tarayıcı üzerinden çalışan basit IDE
+*  Basit ve anlaşılır söz dizimi (syntax)
+*  Döngüler (loops)
+*  Koşul yapıları (if-else)
+*  Değişkenler (variables)
+*  Listeler (arrays/lists)
+*  Oyun mekaniği odaklı kullanım
+*  Tarayıcı üzerinden çalışan basit IDE
 
 ---
 
-## 📁 Proje Yapısı
+## Proje Yapısı
 
 ```
 HeroScript/
@@ -29,12 +56,12 @@ HeroScript/
 
 ---
 
-## 🛠️ Kurulum ve Kullanım
+## Kurulum ve Kullanım
 
 ### 1. Projeyi indir
 
 ```bash
-git clone https://github.com/kullaniciadi/HeroScript.git
+git clone https://github.com/silanpehlivan/HeroScript.git
 ```
 
 ### 2. IDE’yi çalıştır
@@ -44,7 +71,7 @@ git clone https://github.com/kullaniciadi/HeroScript.git
 
 ---
 
-## 📜 Örnek Kod
+## Örnek Kod
 
 ```heroscript
 hero = 10
@@ -57,7 +84,7 @@ else:
 
 ---
 
-## 🎯 Amaç
+## Amaç
 
 Bu proje özellikle:
 
@@ -69,7 +96,7 @@ için tasarlanmıştır.
 
 ---
 
-## 🔮 Gelecek Planları
+## Gelecek Planları
 
 * Daha gelişmiş komutlar
 * Fonksiyon yapısı ekleme
@@ -78,7 +105,7 @@ için tasarlanmıştır.
 
 ---
 
-## 🤝 Katkıda Bulunma
+## Katkıda Bulunma
 
 Katkı sağlamak istersen:
 
@@ -89,12 +116,15 @@ Katkı sağlamak istersen:
 
 ---
 
-## 📜 Lisans
 
-Bu proje **MIT License** ile lisanslanmıştır. Detaylı bilgi için `LICENSE` dosyasını inceleyebilirsiniz.
+</details>
 
-## 👩‍💻 Geliştirici
+---
 
-Şilan PEHLİVAN
+<div align="center">
 
+**© 2026 Şilan PEHLİVAN**
 
+Bu proje MIT lisansı kapsamında sunulmaktadır. Kullanım ve dağıtım koşulları: [LICENSE](LICENSE).
+
+</div>
