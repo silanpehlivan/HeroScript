@@ -2,17 +2,32 @@
 
 # HeroScript
 
-**Oyun senaryolarıyla programlama eğitimi**
+### Kod yaz. Oyun mantığını kur. Sonucu gör.
 
-![Mini Language](https://img.shields.io/badge/Mini%20Language-2563eb?style=flat-square)
-![Browser IDE](https://img.shields.io/badge/Browser%20IDE-0891b2?style=flat-square)
-[![MIT License](https://img.shields.io/badge/License-MIT-16a34a?style=flat-square)](LICENSE)
+![Mini Language](https://img.shields.io/badge/Mini%20Language-2563eb?style=for-the-badge)
+![Browser IDE](https://img.shields.io/badge/Browser%20IDE-0891b2?style=for-the-badge)
+[![MIT](https://img.shields.io/badge/MIT-16a34a?style=for-the-badge)](LICENSE)
 
 RPG ve macera senaryolarını kullanarak temel programlama kavramlarını öğretmeyi amaçlayan mini dil ve tarayıcı IDE’si.
+
+**Oyun senaryolarıyla programlama eğitimi**
+
+[Projeyi keşfet](https://github.com/silanpehlivan/HeroScript/tree/main) · [Kurulum ve ayrıntılar](#projeyi-çalıştırmak-ve-incelemek)
 
 </div>
 
 ---
+
+## İçeride neler var?
+
+- **01** · Değişken, koşul, döngü ve liste yapıları
+- **02** · Tarayıcı üzerinden çalışan IDE
+- **03** · Dil kuralları ve örnek oyun senaryoları
+
+## Projeyi çalıştırmak ve incelemek
+
+<details>
+<summary><strong>Kurulum, kod yapısı ve teknik notları aç</strong></summary>
 
 ## Öne Çıkanlar
 
@@ -24,21 +39,20 @@ RPG ve macera senaryolarını kullanarak temel programlama kavramlarını öğre
 
 Mini Language · Browser IDE
 
-## Teknik yaklaşım
+### Teknik yaklaşım
 
 Dil raporu sözdizimi ve semantik kurallarını açıklar; bağımsız HTML IDE oyun senaryoları üzerinden değişken, koşul ve döngü kavramlarını somutlaştırır.
 
-## Kodu incelemeye başlayın
+### Kodu incelemeye başlayın
 
 - [HeroScript_Dil_Raporu.md](HeroScript_Dil_Raporu.md)
 - [HeroScript_IDE.html](HeroScript_IDE.html)
 
-## Kapsam ve sınırlar
+### Kapsam ve sınırlar
 
 Özel amaçlı eğitim dilidir; genel amaçlı dil standardı veya üretim oyun motoru uyumluluğu iddiası içermez.
 
-<details>
-<summary><strong>Kurulum, kullanım ve teknik ayrıntılar</strong></summary>
+
 
 HeroScript, RPG ve macera oyunları için tasarlanmış **eğitim amaçlı mini bir programlama dilidir**.
 Temel programlama kavramlarını (değişkenler, döngüler, koşullar vb.) oyun senaryoları üzerinden öğretmeyi amaçlar.
@@ -128,6 +142,8 @@ Katkı sağlamak istersen:
 4. Pull Request gönder
 
 ---
+
+
 
 
 </details>
